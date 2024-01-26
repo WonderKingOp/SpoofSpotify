@@ -29,7 +29,7 @@ async function getSongs(folder) {
     console.log(response);
     let div = document.createElement("div")
     div.innerHTML = response;
-    let as = div.querySelectorAll("a.icon")
+    let as = div.querySelectorAll("a.folder")
     console.log(as);
 
 

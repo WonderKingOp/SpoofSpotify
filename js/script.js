@@ -24,7 +24,7 @@ function timeConvert(timeInSeconds) {
 
 async function getSongs(folder) {
     currFolder = folder;
-    let a = await fetch(`http://127.0.0.1:5500/Spotify%20Clone/${folder}/`)
+    let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
     let response = await a.text();
     let div = document.createElement("div")
     div.innerHTML = response;
@@ -75,8 +75,8 @@ async function getSongs(folder) {
 }
 
 const playMusic = (track, pause = false) => {
-    //   let audio = new Audio("/Spotify%20Clone/songs/"+track)
-    currentSong.src = `/Spotify%20Clone/${currFolder}/` + track
+    //   let audio = new Audio("/songs/"+track)
+    currentSong.src = `/${currFolder}/` + track
     if (!pause) {
         currentSong.play()
         play.src = "images/pause.svg"
@@ -103,7 +103,7 @@ const playMusic = (track, pause = false) => {
 }
 
 async function displayAlbums() {
-    let a = await fetch(`http://127.0.0.1:5500/Spotify%20Clone/songs/`)
+    let a = await fetch(`http://127.0.0.1:5500/songs/`)
     let response = await a.text();
     let div = document.createElement("div")
     div.innerHTML = response;
@@ -116,7 +116,7 @@ async function displayAlbums() {
         if (e.href.includes("/songs/")) {
             let folder = e.href.split('/').slice(-1)[0];
 
-            let a = await fetch(`http://127.0.0.1:5500/Spotify%20Clone/songs/${folder}/info.json`)
+            let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`)
             let response = await a.json();
 
             cardContainer.innerHTML = cardContainer.innerHTML + `<div class="card" data-folder="${folder}">
@@ -130,7 +130,7 @@ async function displayAlbums() {
                     </svg>
                     </div>
             </div>
-            <img src="/Spotify%20Clone/songs/${folder}/cover.jpg" alt="">
+            <img src="/songs/${folder}/cover.jpg" alt="">
             <h2>${response.title}</h2>
             <p>${response.description}</p>
         </div>`;

@@ -25,6 +25,7 @@ function timeConvert(timeInSeconds) {
 async function getSongs(folder) {
     currFolder = folder;
     let a = await fetch(`/${folder}/`)
+    console.log(`WORKING---------------------------`, 101+'%');
     let response = await a.text();
     let div = document.createElement("div")
     div.innerHTML = response;

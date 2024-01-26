@@ -29,6 +29,7 @@ async function getSongs(folder) {
     let div = document.createElement("div")
     div.innerHTML = response;
     let as = div.querySelectorAll("a.icon")
+    console.log(as);
 
 
     songs = [];
@@ -154,7 +155,7 @@ async function displayAlbums() {
 async function main() {
     await getSongs('Songs/1')
     console.log(songs);
-    
+
     playMusic(songs[0], true)
 
     displayAlbums();

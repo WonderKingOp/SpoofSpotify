@@ -61,7 +61,7 @@ async function getSongs(folder) {
 
         if (song == songs[songs.length - 1]) {
             songUl.innerHTML = songUl.innerHTML + `
-        <div class="block" style='height: 120px; width: 100px;'></div>`
+        <div class="block" style='height: 300px; width: 100px;'></div>`
         }
     }
 
@@ -153,7 +153,7 @@ async function displayAlbums() {
 }
 
 async function main() {
-    await getSongs('Songs/1')
+    await getSongs('Songs/2')
     console.log(songs);
 
     playMusic(songs[0], true)

@@ -154,6 +154,7 @@ async function displayAlbums() {
 async function main() {
     await getSongs('Songs/1')
     console.log(songs);
+    
     playMusic(songs[0], true)
 
     displayAlbums();

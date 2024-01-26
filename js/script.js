@@ -25,7 +25,6 @@ function timeConvert(timeInSeconds) {
 async function getSongs(folder) {
     currFolder = folder;
     let a = await fetch(`/${folder}/`)
-    console.log(`WORKING---------------------------`, 101+'%');
     let response = await a.text();
     let div = document.createElement("div")
     div.innerHTML = response;
@@ -90,6 +89,7 @@ const playMusic = (track, pause = false) => {
     document.querySelector('.songInfo').innerHTML = `Now : ${decodeURI(track.replace('.mp3', ''))}`
     for (let i = 0; i < songs.length; i++) {
         // console.log( songs[i].replaceAll("%20", " "), track.replaceAll("%20", " "));
+        console.log(track);
         if (songs[i].replaceAll("%20", " ") == track.replaceAll("%20", " ")) {
             if (i + 1 != songs.length) {
                 document.querySelector('.upnext').innerHTML = `Up Next : ${decodeURI(songs[i + 1].replace('.mp3', ''))}`
